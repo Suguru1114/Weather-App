@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './Weather.css'
 import search_icon from '..//assets/search.png'
 import rain_icon from '..//assets/rain.png'
@@ -10,6 +10,25 @@ import snow_icon from '..//assets/snow.png'
 import windy_icon from '..//assets/windy.png'
 
 function Weather() {
+
+    const search = async()=>{
+        try {
+            const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${import.meta.env.VITE_APP_ID}`;
+        
+            const response = await fetch(url);
+            const data = await response.json();
+            console .log(data);
+
+        } catch (error) {   
+            console.error("Error fetching weather data:", error);
+
+        }
+    }
+        useEffect(()=>{
+            search("Sydney");
+
+        },[])
+
   return (    
     <div className='weather'>
         <div className='search-bar'>
@@ -18,7 +37,7 @@ function Weather() {
         </div>
         <img src={clear_icon} alt="" className='weather-icon'/>
         <p className='temperature'>25°C</p>
-        <p className='location'>Chatswood</p>
+        <p className='location'>Sydney</p>
         <div className='weather-data'>
             <div className='col'>
                 <img src={humid_icon} alt=''/>
