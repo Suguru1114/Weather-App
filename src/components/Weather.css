@@ -1,17 +1,20 @@
 .weather{
+    display: flex;
     place-self: center;
     padding: 40px;
     border-radius: 10px;
     background-image: linear-gradient(45deg, #2f4680,#500ae4);
     flex-direction: column;
     align-items: center;
+    /* justify-content: center; */
+    place-self: center;
 }
 
-/* it doesnt change anyrhing  */
 .search-bar{  
     display: flex;
     align-items: center;
     gap: 12px;
+    margin-bottom: 20px;
    
 }
 
@@ -34,3 +37,45 @@
     cursor: pointer;
 
 }
+
+.weather-icon {
+    width: 60px; 
+    margin: 20px 0; /* Move the image down and add spacing below */
+  }
+
+.temperature {
+    font-size: 30px; 
+    color: #fff; /* White text for better contrast */
+    margin: 10px 0; /* Add spacing between text elements */
+    /* line-height: 1; */
+  }
+
+  .location{
+    color: #fff;
+    font-size: 30px;
+  }
+
+  .weather-data{
+    width: 100%;
+    margin-top: 40px;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .weather-data .col{
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 22px;
+  }
+
+  .weather-data .col span{
+    display: block;
+    font-size: 16px;
+  }
+
+  .weather-data .col img{
+    width: 50px;
+    margin-top:10px;
+  }

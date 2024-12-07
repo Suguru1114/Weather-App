@@ -16,9 +16,26 @@ function Weather() {
             <input type="text" placeholder='Search'></input>
             <img src={search_icon} alt="" />
         </div>
-        <img src={clear_icon} alt="" className='weather-icon '/>
-        <p>25°C</p>
-        <p>Chatswood</p>
+        <img src={clear_icon} alt="" className='weather-icon'/>
+        <p className='temperature'>25°C</p>
+        <p className='location'>Chatswood</p>
+        <div className='weather-data'>
+            <div className='col'>
+                <img src={humid_icon} alt=''/>
+                <div>
+                    <p>91%</p>
+                    <span>Humidity</span>
+                </div>
+         </div>
+
+         <div className='col'>
+                <img src={windy_icon} alt=''/>
+                <div>
+                    <p>3.6km/h</p>
+                    <span>Wind Speed</span>
+                </div>
+         </div>
+        </div>
     </div> 
   )
 }
