@@ -17,13 +17,13 @@ function Weather() {
         
             const response = await fetch(url);
             const data = await response.json();
-            console .log(data);
+            console.log(data);
 
         } catch (error) {   
             console.error("Error fetching weather data:", error);
-
         }
     }
+
         useEffect(()=>{
             search("Sydney");
 
