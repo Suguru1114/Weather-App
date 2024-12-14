@@ -4,7 +4,7 @@ import search_icon from '..//assets/search.png'
 import rain_icon from '..//assets/rain.png'
 import clear_icon from '..//assets/clear.png'
 import cloud_icon from '..//assets/cloud.png'
-import dizzle_icon from '..//assets/dizzle.png'
+import drizzle_icon from '..//assets/drizzle.png'
 import humid_icon from '..//assets/humid.png'
 import snow_icon from '..//assets/snow.png'
 import windy_icon from '..//assets/windy.png'
@@ -12,7 +12,7 @@ import windy_icon from '..//assets/windy.png'
 function Weather() {
 
 
-    const [wearherData, setWeatherData] = useState(false);
+    const [weatherData, setWeatherData] = useState(false);
     const allIcons = {
         "01d": clear_icon,
         "01n": clear_icon,
@@ -38,7 +38,7 @@ function Weather() {
             const response = await fetch(url);
             const data = await response.json();
             console.log(data);
-            const icon = alllIcons[data.weather[0].icon] || clear_icon;
+            const icon = allIcons[data.weather[0].icon] || clear_icon;
 
             setWeatherData({
                 humidity: data.main.humidity,
@@ -54,7 +54,7 @@ function Weather() {
     }
 
         useEffect(()=>{
-            search("Sydney");
+            search("Tokyo");
 
         },[])
 
@@ -65,13 +65,13 @@ function Weather() {
             <img src={search_icon} alt="" />
         </div>
         <img src={clear_icon} alt="" className='weather-icon'/>
-        <p className='temperature'>25°C</p>
-        <p className='location'>Sydney</p>
+        <p className='temperature'>{weatherData.temperature}°C</p>
+        <p className='location'>{weatherData.location}</p>
         <div className='weather-data'>
             <div className='col'>
                 <img src={humid_icon} alt=''/>
                 <div>
-                    <p>91%</p>
+                    <p>{weatherData.humidity}%</p>
                     <span>Humidity</span>
                 </div>
          </div>
@@ -79,7 +79,7 @@ function Weather() {
          <div className='col'>
                 <img src={windy_icon} alt=''/>
                 <div>
-                    <p>3.6km/h</p>
+                    <p>{weatherData.windSpeed}km/h</p>
                     <span>Wind Speed</span>
                 </div>
          </div>
